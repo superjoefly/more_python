@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>More Python3 Programming</title>
+        <!-- SEO -->
+        <meta name="author" content="Joseph Atwood">
+        <meta name="keywords" content="Web Development, Programming, Python, Python3, Programming Logic and Design">
+        <meta name="description" content="More Python3 Programming">
+        <!-- Viewport -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- W3CSS -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <!-- PreCodeJS -->
+        <script src="../prism/preCode.js"></script>
+        <!-- Prismjs -->
+        <link rel="stylesheet" href="../prism/prism.css">
+        <script src="../prism/prism.js"></script>
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="../css/styles.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
+    </head>
+    <body class="w3-container">
+
+
+        <header class="w3-center">
+            <img src="../images/python-logo.png" alt="Python 3 Logo" class="w3-image">
+            <h1>Python 3</h1>
+            <h3>Word Counter</h3>
+        </header>
+
+
+        <pre><code class="language-python">
+            """Word Count Program"""
+
+
+            # Import Modules:
+            import operator
+            import requests
+            from bs4 import BeautifulSoup
+
+
+            # Constants:
+            HEADING = ['WORD', 'COUNT']
+            DISPLAY = "{0:20s} {1:20s}"
+
+
+            # Crawl url; clean words; display word count:
+            def main():
+                """Main Function"""
+
+                # Get url to crawl:
+                url = input("Enter a url to crawl: ")
+
+                # Crawl url and return list of words:
+                word_list = crawl(url)
+
+                # Clean word list and return clean words:
+                clean_words = clean_words_list(word_list)
+
+
+
+                ###########################################
+                # Display Table of Words and Count #
+
+                # Create sorted dictionary (returns a list):
+                sorted_list = create_dictionary(clean_words)
+
+                # Display Table:
+                display_table(sorted_list)
+                ############################################
+
+
+
+
+                # ###########################################
+                # # Display Word Count for Specific Word #
+                #
+                # # Define search query:
+                # search = input("Enter a word to search: ")
+                #
+                # display_search_count(search, clean_words)
+                # ###########################################
+
+
+
+            # Crawls a url and returns a list of words:
+            def crawl(url):
+                """Crawl url and return list of words"""
+
+                source = requests.get(url).text
+                data = BeautifulSoup(source, 'lxml')
+
+                content = data.get_text()
+                words = content.lower().split()
+
+                return words
+
+
+
+            # Cleans the word list removing unwanted characters:
+            def clean_words_list(word_list):
+                """Clean words of unwanted characters"""
+
+                clean_words = []
+                accepted = "abcdefghijklmnopqrstuvwxyz-'"
+                for word in word_list:
+                    for i in list(word):
+                        if i not in list(accepted):
+                            word = word.replace(i, '')
+                    if word:
+                        clean_words.append(word)
+
+                return clean_words
+
+
+
+            # Creates a sorted dictionary and returns a sorted list:
+            def create_dictionary(clean_words):
+                """Create sorted dictionary and return list"""
+
+                word_count = {}
+                for word in clean_words:
+                    if word in word_count:
+                        word_count[word] += 1
+                    else:
+                        word_count[word] = 1
+
+                # Sort by key (alphabetically):
+                sorted_dict = sorted(word_count.items(), key=operator.itemgetter(0))
+
+                # # Sort by value (frequency):
+                # sorted_dict = sorted(word_count.items(), key=operator.itemgetter(1))
+
+                return sorted_dict
+
+
+
+            # Displays a table of words with word counts:
+            def display_table(sorted_list):
+                """Display table"""
+
+                # Display Formatted Table Headings:
+                print("---------------------------")
+                print(DISPLAY.format(HEADING[0], HEADING[1]))
+                print("---------------------------")
+
+                # Display Formatted Items:
+                for item in sorted_list:
+                    print(DISPLAY.format(item[0], str(item[1])))
+
+
+
+            # Displays a word count search query:
+            def display_search_count(search, clean_words):
+                """Display words and count"""
+
+                count = 0
+                for word in clean_words:
+                    if word == search:
+                        count += 1
+
+                print("The word", search, "appears", count, "times.")
+
+
+            # Call main:
+            main()
+        </code></pre>
+
+
+        <!-- Back Button -->
+        <button class="w3-button w3-block w3-teal w3-large w3-margin-bottom w3-hover-gray w3-round" onclick="(function() {window.history.back()}())">Back</button>
+
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+            <li><a href="http://joefly.site">Home</a></li>
+            <li><a href="../../../resume">Resume</a></li>
+            <li><a href="../../../portfolio">Portfolio</a></li>
+            <li><a href="../../../projects">Projects</a></li>
+            <li><a href="../../../about">About</a></li>
+            </ul>
+        </nav>
+
+    </body>
+</html>

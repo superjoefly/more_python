@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>More Python3 Programming</title>
+        <!-- SEO -->
+        <meta name="author" content="Joseph Atwood">
+        <meta name="keywords" content="Web Development, Programming, Python, Python3, Programming Logic and Design">
+        <meta name="description" content="More Python3 Programming">
+        <!-- Viewport -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- W3CSS -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <!-- PreCodeJS -->
+        <script src="../prism/preCode.js"></script>
+        <!-- Prismjs -->
+        <link rel="stylesheet" href="../prism/prism.css">
+        <script src="../prism/prism.js"></script>
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="../css/styles.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
+    </head>
+    <body class="w3-container">
+
+
+        <header class="w3-center">
+            <img src="../images/python-logo.png" alt="Python 3 Logo" class="w3-image">
+            <h1>Python 3</h1>
+            <h3>Dictionaries</h3>
+        </header>
+
+
+        <pre><code class="language-python">
+          """Example of Min, Max and Sorting for Dictionaries"""
+
+
+          # Description: The following program determines the min,
+          # max and sorted values of a dictionary:
+
+
+          # Assigns a dictionary and uses the zip function
+          # to convert to a list of tupples. Then uses the min, max and
+          # sorted functions to display min, max and sorted values.
+          def main():
+              """The main function"""
+
+              # Assign dictionary:
+              emp_wages = {
+                  'John': 50.00,
+                  'Brian': 75.00,
+                  'Craig': 85.00,
+                  'Hank': 95.00,
+                  'Doug': 45.00
+              }
+
+              # Zip the dictionary and convert to list of tupples:
+              wages = list(zip(emp_wages.values(), emp_wages.keys()))
+
+              # Display list of tupples:
+              print(wages)
+
+              # Display first value of each tupple:
+              for tup in wages:
+                  print(tup[0])
+
+              # The following functions operate according to first value
+              # in tupple. We can also use min, max and sort on alphabetical
+              # data by switching the position of keys and values above
+              # during zip.
+
+              # Display min value:
+              print(min(wages))
+
+              # Display max value:
+              print(max(wages))
+
+              # Display sorted values:
+              print(sorted(wages))
+
+
+          # Call main:
+          main()
+        </code></pre>
+
+
+        <!-- Back Button -->
+        <button class="w3-button w3-block w3-teal w3-large w3-margin-bottom w3-hover-gray w3-round" onclick="(function() {window.history.back()}())">Back</button>
+
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+            <li><a href="http://joefly.site">Home</a></li>
+            <li><a href="../../../resume">Resume</a></li>
+            <li><a href="../../../portfolio">Portfolio</a></li>
+            <li><a href="../../../projects">Projects</a></li>
+            <li><a href="../../../about">About</a></li>
+            </ul>
+        </nav>
+
+    </body>
+</html>

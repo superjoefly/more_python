@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>More Python3 Programming</title>
+        <!-- SEO -->
+        <meta name="author" content="Joseph Atwood">
+        <meta name="keywords" content="Web Development, Programming, Python, Python3, Programming Logic and Design">
+        <meta name="description" content="More Python3 Programming">
+        <!-- Viewport -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- W3CSS -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <!-- PreCodeJS -->
+        <script src="../prism/preCode.js"></script>
+        <!-- Prismjs -->
+        <link rel="stylesheet" href="../prism/prism.css">
+        <script src="../prism/prism.js"></script>
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="../css/styles.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
+    </head>
+    <body class="w3-container">
+
+
+        <header class="w3-center">
+            <img src="../images/python-logo.png" alt="Python 3 Logo" class="w3-image">
+            <h1>Python 3</h1>
+            <h3>Dictionary Calculations</h3>
+        </header>
+
+
+        <pre><code class="language-python">
+          """Calculation using Dictionary Values"""
+
+
+          # Description: The following program uses the zip and min
+          # functions to determine the minimum value in a dictionary:
+
+
+          # Assigns a dictionary and determines the minimum value
+          # in the dictionary:
+          def main():
+              """The main function"""
+
+              # Assign dictionary:
+              stocks = {
+                  'GOOG': 434,
+                  'AAPL': 325,
+                  'FB': 54,
+                  'AMZN': 623,
+                  'F': 32,
+                  'MSFT': 549
+              }
+
+              # Get the minimum value:
+              min_value = get_min_value(stocks)
+
+              # Display the minimum value:
+              print(min_value)
+
+
+          # Takes the stocks dictionary and returns
+          # the minimum value:
+          def get_min_value(stocks):
+
+              # # Get minimum value by key:
+              # min_value = min(zip(stocks.keys(), stocks.values()))
+
+              # Get minimum value by value:
+              min_value = min(zip(stocks.values(), stocks.keys()))
+
+              # Return minimum value:
+              return min_value
+
+
+          # Call main:
+          main()
+        </code></pre>
+
+
+        <!-- Back Button -->
+        <button class="w3-button w3-block w3-teal w3-large w3-margin-bottom w3-hover-gray w3-round" onclick="(function() {window.history.back()}())">Back</button>
+
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+            <li><a href="http://joefly.site">Home</a></li>
+            <li><a href="../../../resume">Resume</a></li>
+            <li><a href="../../../portfolio">Portfolio</a></li>
+            <li><a href="../../../projects">Projects</a></li>
+            <li><a href="../../../about">About</a></li>
+            </ul>
+        </nav>
+
+    </body>
+</html>

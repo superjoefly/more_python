@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>More Python3 Programming</title>
+        <!-- SEO -->
+        <meta name="author" content="Joseph Atwood">
+        <meta name="keywords" content="Web Development, Programming, Python, Python3, Programming Logic and Design">
+        <meta name="description" content="More Python3 Programming">
+        <!-- Viewport -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- W3CSS -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <!-- PreCodeJS -->
+        <script src="../prism/preCode.js"></script>
+        <!-- Prismjs -->
+        <link rel="stylesheet" href="../prism/prism.css">
+        <script src="../prism/prism.js"></script>
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="../css/styles.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
+    </head>
+    <body class="w3-container">
+
+
+        <header class="w3-center">
+            <img src="../images/python-logo.png" alt="Python 3 Logo" class="w3-image">
+            <h1>Python 3</h1>
+            <h3>Threading</h3>
+        </header>
+
+
+        <pre><code class="language-python">
+            """Threading Example"""
+
+            # The following program uses threading:
+
+
+            # Import Modules:
+            import threading
+            import time
+
+
+            # Creates a threading class and starts
+            # the threads which run simultaneously:
+            def main():
+                """This is the main function:"""
+
+                # Create class:
+                class MyMessenger(threading.Thread):
+                    """This is the MyMessenger Class"""
+
+                    # Define run function:
+                    def run(self):
+                        # Loop to print thread name:
+                        for _ in range(10):
+                            # Delay the loops:
+                            time.sleep(1)
+                            # Display current threads name:
+                            print(threading.currentThread().getName())
+
+                # Create the threads:
+                x = MyMessenger(name="Sending...")
+                y = MyMessenger(name="Receiving...")
+
+                # Run threads at the same time (threading):
+                x.start()
+                y.start()
+
+
+            # Call main:
+            main()
+        </code></pre>
+
+
+        <!-- Back Button -->
+        <button class="w3-button w3-block w3-teal w3-large w3-margin-bottom w3-hover-gray w3-round" onclick="(function() {window.history.back()}())">Back</button>
+
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+            <li><a href="http://joefly.site">Home</a></li>
+            <li><a href="../../../resume">Resume</a></li>
+            <li><a href="../../../portfolio">Portfolio</a></li>
+            <li><a href="../../../projects">Projects</a></li>
+            <li><a href="../../../about">About</a></li>
+            </ul>
+        </nav>
+
+    </body>
+</html>

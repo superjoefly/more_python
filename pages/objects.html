@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>More Python3 Programming</title>
+        <!-- SEO -->
+        <meta name="author" content="Joseph Atwood">
+        <meta name="keywords" content="Web Development, Programming, Python, Python3, Programming Logic and Design">
+        <meta name="description" content="More Python3 Programming">
+        <!-- Viewport -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- W3CSS -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <!-- PreCodeJS -->
+        <script src="../prism/preCode.js"></script>
+        <!-- Prismjs -->
+        <link rel="stylesheet" href="../prism/prism.css">
+        <script src="../prism/prism.js"></script>
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="../css/styles.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
+    </head>
+    <body class="w3-container">
+
+
+        <header class="w3-center">
+            <img src="../images/python-logo.png" alt="Python 3 Logo" class="w3-image">
+            <h1>Python 3</h1>
+            <h3>Objects and Classes</h3>
+        </header>
+
+
+        <pre><code class="language-python">
+            """Object and Class Examples"""
+
+            #####################
+            # Objects and Classes
+            #####################
+
+
+            def main():
+                """Example of Class and Object Creation"""
+
+                # Class creation:
+                class Enemy:
+                    """The Enemy class has one property and two methods"""
+
+                    # Class property:
+                    life = 3
+
+                    # Class methods:
+                    def attack(self):
+                        """This is the attack method of the enemy class"""
+
+                        print("OUCH!!!")
+                        self.life -= 1
+
+                    def check_life(self):
+                        """This is the check_life method of the enemy class"""
+
+                        if self.life <= 0:
+                            print("Enemy Dead!")
+                        else:
+                            print(self.life, 'life left!')
+
+
+                # Creat two Enemy objects:
+                enemy1 = Enemy()
+                enemy2 = Enemy()
+
+                # Call check_life method of Enemy objects:
+                enemy1.check_life()
+                enemy2.check_life()
+
+                print("------------")
+
+                # Call attack method on the first enemy object:
+                enemy1.attack()
+                enemy1.attack()
+                enemy1.attack()
+
+                print("------------")
+
+                # Call check_life method of Enamy objects:
+                enemy1.check_life()
+                enemy2.check_life()
+                print("##################")
+
+
+
+
+
+                #######################
+                # Using the Init Method
+                #######################
+
+                # Create Animal Class:
+                class Animal:
+                    """This the the Animal Class"""
+
+                    def __init__(self, name, type_of):
+                        self.name = name
+                        self.type_of = type_of
+
+                    def say_hello(self, hello):
+                        """Say Hello Method of Animal Class"""
+
+                        print(hello)
+
+
+
+                # Object creation:
+                fido = Animal('Fido', 'dog')
+                squeaky = Animal('Squeaky', 'cat')
+
+                # Call the say_hello method of the Animal class:
+                fido.say_hello('Ruff Ruff!!!')
+                squeaky.say_hello('Meow Meow!!!')
+                print("##################")
+
+
+
+
+
+
+                #############################
+                # Class vs Instance Variables
+                #############################
+                # Create Animal Class:
+                class Beast:
+                    """This is the Beast class"""
+
+                    # Default properties of class (class variables):
+                    legs = 4
+                    eyes = 2
+                    noise = 'Grrraawwww!!!'
+
+                    # Default methods of class:
+                    def make_noise(self):
+                        """Make Noise Method of Beast Class"""
+
+                        print(self.noise)
+
+                    # Instantiation of class (instance variables)
+                    def __init__(self, type_of, name):
+                        self.type_of = type_of
+                        self.name = name
+
+
+                # Whatever you pass during object creation is
+                # an instance variable:
+                beasty = Beast('Monster', 'Grawl')
+                monstey = Beast('Monster', 'Monstro')
+
+                # Instance variable:
+                print(beasty.type_of)
+                print(beasty.name)
+                print("-----------")
+                print(monstey.type_of)
+                print(monstey.name)
+
+
+                # Class variables:
+                print(beasty.legs)
+                print(beasty.eyes)
+                print("----------")
+                print(monstey.legs)
+                print(monstey.eyes)
+
+
+                # Class method:
+                beasty.make_noise()
+                monstey.make_noise()
+                print("##################")
+
+
+
+
+
+
+                ######################
+                # Object Inheritance
+                ######################
+                class Parent():
+                    def __init__(self, first_name, last_name):
+                        self.first_name = first_name
+                        self.last_name = last_name
+
+                    def display_first_name(self):
+                        """Display First Name method of Parent Class"""
+
+                        print(self.first_name)
+
+                    def display_last_name(self):
+                        """Display Last Name method of Parent Class"""
+
+                        print(self.last_name)
+
+                class Child(Parent):
+                    """Child Class"""
+
+                    def say_hello(self):
+                        """Say Hello Method of Child Class"""
+
+                        print("Hello There!")
+
+                    # Override last_name method of parent class:
+                    def display_last_name(self):
+                        """Display Last Name method of Child Class"""
+
+                        print("Whatever!!!")
+
+
+                mom = Parent('Priscilla', 'Atwood')
+                mom.display_first_name()
+                mom.display_last_name()
+
+                print("------------")
+
+                joe = Child('Joseph', 'Atwood')
+                joe.display_first_name()
+                joe.display_last_name()
+
+                print("##################")
+
+
+
+
+                ########################
+                # Multiple - Inheritance
+                ########################
+
+                class Mario():
+                    """Mario Class"""
+
+                    def __init__(self, life):
+                        self.life = life
+
+                    def move(self):
+                        """Move Method"""
+
+                        print("Mario moves around...")
+
+                    def gains_life(self):
+                        """Gains Life Method"""
+
+                        self.life += 3
+
+                class Shroom():
+                    """Shroom Class"""
+
+                    def eat_shroom(self):
+                        """Eat Mushroom Method"""
+                        print("Mario get's bigger!")
+
+                class FastMario():
+                    """Fast Mario Class"""
+
+                    def super_speed(self):
+                        """Super Speed Method"""
+                        print("Mario runs at super speed!!!")
+
+                # Inherits from multiple classes:
+                class SuperMario(Mario, Shroom, FastMario):
+                    """Super Mario Class"""
+
+                    pass
+
+                # Creat object:
+                mario1 = SuperMario(5)
+
+                # Has access to methods of parent classes:
+                print(mario1.life)
+                mario1.move()
+                mario1.eat_shroom()
+                mario1.gains_life()
+                print(mario1.life)
+                mario1.super_speed()
+
+
+            # Call main:
+            main()
+        </code></pre>
+
+
+        <!-- Back Button -->
+        <button class="w3-button w3-block w3-teal w3-large w3-margin-bottom w3-hover-gray w3-round" onclick="(function() {window.history.back()}())">Back</button>
+
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+            <li><a href="http://joefly.site">Home</a></li>
+            <li><a href="../../../resume">Resume</a></li>
+            <li><a href="../../../portfolio">Portfolio</a></li>
+            <li><a href="../../../projects">Projects</a></li>
+            <li><a href="../../../about">About</a></li>
+            </ul>
+        </nav>
+
+    </body>
+</html>

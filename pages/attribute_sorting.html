@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>More Python3 Programming</title>
+        <!-- SEO -->
+        <meta name="author" content="Joseph Atwood">
+        <meta name="keywords" content="Web Development, Programming, Python, Python3, Programming Logic and Design">
+        <meta name="description" content="More Python3 Programming">
+        <!-- Viewport -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- W3CSS -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <!-- PreCodeJS -->
+        <script src="../prism/preCode.js"></script>
+        <!-- Prismjs -->
+        <link rel="stylesheet" href="../prism/prism.css">
+        <script src="../prism/prism.js"></script>
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="../css/styles.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
+    </head>
+    <body class="w3-container">
+
+
+        <header class="w3-center">
+            <img src="../images/python-logo.png" alt="Python 3 Logo" class="w3-image">
+            <h1>Python 3</h1>
+            <h3>Attribute Sorting</h3>
+        </header>
+
+
+        <pre><code class="language-python">
+            """Sort Objects by Attribute"""
+
+
+            # Import Modules:
+            from operator import attrgetter
+
+
+            # Define main:
+            def main():
+                """The main function"""
+
+                # Create the User class:
+                class User:
+                    """User Class with two methods"""
+
+                    # Initialize objects with name and user_id:
+                    def __init__(self, name, user_id):
+                        self.name = name
+                        self.user_id = user_id
+
+                    # String representation of object:
+                    def __repr__(self):
+                        return self.name + ':' + str(self.user_id)
+
+                # List of user objects:
+                users = [
+                    User('John', 43),
+                    User('Craig', 5),
+                    User('Billy', 61),
+                    User('Gina', 2),
+                    User('Jessica', 8)
+                ]
+
+                # Display each user:
+                for user in users:
+                    print(user)
+
+                print("-----------------")
+
+                # Display list of users sorted by name:
+                for user in sorted(users, key=attrgetter('name')):
+                    print(user)
+
+                print("-----------------")
+
+                # Display list of users sorted by user_id:
+                for user in sorted(users, key=attrgetter('user_id')):
+                    print(user)
+
+
+            # Call main:
+            main()
+        </code></pre>
+
+
+        <!-- Back Button -->
+        <button class="w3-button w3-block w3-teal w3-large w3-margin-bottom w3-hover-gray w3-round" onclick="(function() {window.history.back()}())">Back</button>
+
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+            <li><a href="http://joefly.site">Home</a></li>
+            <li><a href="../../../resume">Resume</a></li>
+            <li><a href="../../../portfolio">Portfolio</a></li>
+            <li><a href="../../../projects">Projects</a></li>
+            <li><a href="../../../about">About</a></li>
+            </ul>
+        </nav>
+
+    </body>
+</html>

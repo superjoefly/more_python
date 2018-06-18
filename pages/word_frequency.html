@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>More Python3 Programming</title>
+        <!-- SEO -->
+        <meta name="author" content="Joseph Atwood">
+        <meta name="keywords" content="Web Development, Programming, Python, Python3, Programming Logic and Design">
+        <meta name="description" content="More Python3 Programming">
+        <!-- Viewport -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- W3CSS -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <!-- PreCodeJS -->
+        <script src="../prism/preCode.js"></script>
+        <!-- Prismjs -->
+        <link rel="stylesheet" href="../prism/prism.css">
+        <script src="../prism/prism.js"></script>
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="../css/styles.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
+    </head>
+    <body class="w3-container">
+
+
+        <header class="w3-center">
+            <img src="../images/python-logo.png" alt="Python 3 Logo" class="w3-image">
+            <h1>Python 3</h1>
+            <h3>Word Frequency</h3>
+        </header>
+
+
+        <pre><code class="language-python">
+          """Word Frequency"""
+
+
+          # Description: The following program takes a sentence from the user
+          # and determines the word frequency using the Counter module:
+
+
+          # Import Modules:
+          from collections import Counter
+
+
+          # Gets a sentence and a level from the user to determine
+          # the frequency of word occurence:
+          def main():
+              """The main function"""
+
+              print()
+
+              # Get sentence for word frequency count:
+              sentence = input("Enter a sentence for the word frequency count: ")
+
+              print()
+
+              # Define level of frequency:
+              level = int(input("Enter a non-negative integer for the level of " \
+              "frequency. For example, enter '3' to get the top 3 words: "))
+
+              print()
+
+              # Get frequent words:
+              frequent_words = word_frequency(sentence, level)
+
+              # Display frequent words:
+              print(frequent_words)
+
+
+          # Takes a sentence and a level and returns the frequency
+          # of words depending on the level:
+          def word_frequency(sentence, level):
+              """Count word frequency"""
+
+              # Split into list of words:
+              words = sentence.split()
+
+              # Create Counter object:
+              counter = Counter(words)
+
+              # Get top three most common words:
+              result = counter.most_common(level)
+
+              # Display top three most common words:
+              return result
+
+
+          # Call main:
+          main()
+        </code></pre>
+
+
+        <!-- Back Button -->
+        <button class="w3-button w3-block w3-teal w3-large w3-margin-bottom w3-hover-gray w3-round" onclick="(function() {window.history.back()}())">Back</button>
+
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+            <li><a href="http://joefly.site">Home</a></li>
+            <li><a href="../../../resume">Resume</a></li>
+            <li><a href="../../../portfolio">Portfolio</a></li>
+            <li><a href="../../../projects">Projects</a></li>
+            <li><a href="../../../about">About</a></li>
+            </ul>
+        </nav>
+
+    </body>
+</html>

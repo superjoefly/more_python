@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>More Python3 Programming</title>
+        <!-- SEO -->
+        <meta name="author" content="Joseph Atwood">
+        <meta name="keywords" content="Web Development, Programming, Python, Python3, Programming Logic and Design">
+        <meta name="description" content="More Python3 Programming">
+        <!-- Viewport -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- W3CSS -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <!-- PreCodeJS -->
+        <script src="../prism/preCode.js"></script>
+        <!-- Prismjs -->
+        <link rel="stylesheet" href="../prism/prism.css">
+        <script src="../prism/prism.js"></script>
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="../css/styles.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
+    </head>
+    <body class="w3-container">
+
+
+        <header class="w3-center">
+            <img src="../images/python-logo.png" alt="Python 3 Logo" class="w3-image">
+            <h1>Python 3</h1>
+            <h3>Web Crawler</h3>
+        </header>
+
+
+        <pre><code class="language-python">
+            """Web Crawler Program"""
+
+
+            # Import Modules:
+            import requests
+            from bs4 import BeautifulSoup
+            from urllib.parse import urljoin
+
+
+            # Get and crawl url:
+            def main():
+                """The main function"""
+
+                # Get URL from user:
+                url = input("Enter a URL for the crawl: ")
+
+                # Get BeautifulSoup Object:
+                soup = get_soup(url)
+
+                # Crawl url:
+                crawl_url(url, soup)
+
+
+            # Create and return BeautifulSoup object:
+            def get_soup(url):
+                """Creates and returns BeautifulSoup object"""
+
+                # Get the source code:
+                source_code = requests.get(url)
+
+                # Convert to plain text:
+                data = source_code.text
+
+                # Convert to BeautifulSoup object:
+                my_soup = BeautifulSoup(data, 'lxml')
+
+                return my_soup
+
+
+            # Crawl the url; display link text:
+            def crawl_url(url, soup):
+                """Crawls the url; displays anchor links and inner text"""
+
+                # For each anchor tag:
+                for item in soup.findAll('a'):
+
+                    # Get the href value:
+                    href = urljoin(url, item.get('href'))
+
+                    # Get the text for the link:
+                    content = item.string
+
+                    # Display href and inner text:
+                    print(href)
+                    print(content)
+                    print("-----------")
+
+
+            # Call main:
+            main()
+        </code></pre>
+
+
+        <!-- Back Button -->
+        <button class="w3-button w3-block w3-teal w3-large w3-margin-bottom w3-hover-gray w3-round" onclick="(function() {window.history.back()}())">Back</button>
+
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+            <li><a href="http://joefly.site">Home</a></li>
+            <li><a href="../../../resume">Resume</a></li>
+            <li><a href="../../../portfolio">Portfolio</a></li>
+            <li><a href="../../../projects">Projects</a></li>
+            <li><a href="../../../about">About</a></li>
+            </ul>
+        </nav>
+
+    </body>
+</html>

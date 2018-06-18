@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>More Python3 Programming</title>
+        <!-- SEO -->
+        <meta name="author" content="Joseph Atwood">
+        <meta name="keywords" content="Web Development, Programming, Python, Python3, Programming Logic and Design">
+        <meta name="description" content="More Python3 Programming">
+        <!-- Viewport -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- W3CSS -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <!-- PreCodeJS -->
+        <script src="../prism/preCode.js"></script>
+        <!-- Prismjs -->
+        <link rel="stylesheet" href="../prism/prism.css">
+        <script src="../prism/prism.js"></script>
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="../css/styles.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
+    </head>
+    <body class="w3-container">
+
+
+        <header class="w3-center">
+            <img src="../images/python-logo.png" alt="Python 3 Logo" class="w3-image">
+            <h1>Python 3</h1>
+            <h3>Image Downloading</h3>
+        </header>
+
+
+        <pre><code class="language-python">
+          """Image Downloading Program"""
+
+          # The following program will download
+          # an image from the user specified url:
+
+          # Modules:
+          from urllib import request
+          from PIL import Image
+
+
+          # Gets url from user and downloads an image:
+          def main():
+              """The main function"""
+
+              # Get image url from user:
+              image_url = input("Enter the url for the image to download: ")
+
+              # Download the image:
+              download_image(image_url)
+
+
+          # Downloads and verifies the image download:
+          def download_image(url):
+              """Download and verify image"""
+
+              # Define name for image:
+              image_name = 'my_image.jpg'
+
+              # Download the image:
+              request.urlretrieve(url, image_name)
+
+              # Validate image download:
+              try:
+                  temp = Image.open(image_name)
+                  temp.close()
+                  print("Image downloaded successfully!")
+              except IOError:
+                  print("There was an error! Please check the url for the image and try again!")
+
+
+          # Call main:
+          main()
+        </code></pre>
+
+
+        <!-- Back Button -->
+        <button class="w3-button w3-block w3-teal w3-large w3-margin-bottom w3-hover-gray w3-round" onclick="(function() {window.history.back()}())">Back</button>
+
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+            <li><a href="http://joefly.site">Home</a></li>
+            <li><a href="../../../resume">Resume</a></li>
+            <li><a href="../../../portfolio">Portfolio</a></li>
+            <li><a href="../../../projects">Projects</a></li>
+            <li><a href="../../../about">About</a></li>
+            </ul>
+        </nav>
+
+    </body>
+</html>
